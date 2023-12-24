@@ -30,6 +30,13 @@ public class CoursesController : ControllerBase
             new Course { Id = 7, Name = "Course 7", Description = "Description 7" },
         };
     }
+
+    [HttpGet("{id}")]
+    public Course Get(int id)
+    {
+        _logger.LogInformation($"Getting course with id {id}");
+        return new Course { Id = id, Name = $"Course {id}", Description = $"Description {id}" };
+    }
 }
 
 
